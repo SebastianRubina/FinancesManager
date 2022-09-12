@@ -7,10 +7,10 @@ export default function Information(props) {
 
     return (
         props.Data.length > 0 && <div className="Information">
-            <h1>Information</h1>
-            <p>Dates: {props.Data[0].date} - {props.Data[numberOfTransactions - 2].date}</p>
-            <p>Total Number of Transactions: {numberOfTransactions}</p>
-            <p>Total Expenses: {props.total}</p>
+            <h2>Statement Information</h2>
+            <p><strong>Dates: </strong><br />{props.Data[0].date} - {props.Data[numberOfTransactions - 2].date}</p>
+            <p><strong>Total number of Transactions: </strong><br />{numberOfTransactions}</p>
+            <p><strong>Total Expenses: </strong><br />{props.total}</p>
         </div>
     );
 }

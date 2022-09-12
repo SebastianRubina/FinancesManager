@@ -1,4 +1,5 @@
 import './App.css';
+import './Styles/Reset.css';
 import { Data } from './Components/Data';
 import Information from './Components/Information';
 import CategoryCard from './Components/CategoryCard';
@@ -149,24 +150,27 @@ function App() {
   } 
 
   const categoryCards = Object.keys(sortedExpenses).map((item, i) => (
-    <CategoryCard categoryName={item} expenseAmount={sortedExpenses[item]}/>
+    <CategoryCard key={item} categoryName={item} expenseAmount={sortedExpenses[item]} Data={Data}/>
   ))
 
   return (
     <div className="App">
-      <h1>File Input</h1>
+      <h1>Finance Manager</h1>
 
-      <label htmlFor="file--input">Upload a CSV</label>
-      <input type="file" accept=".csv" name="file--input" id="file--input" 
-          onChange={changeHandler}/>
-      <button onClick={handleSubmit}>Submit</button>
+      <div className="upload--form">
+        <label className="input--text" htmlFor="file--input">Click Here to Upload a TD Statement (.csv)
+          <input type="file" accept=".csv" name="file--input" id="file--input" 
+            onChange={changeHandler}/>
+        </label>
+        {selectedFile && <p className='file--name'><strong>File Selected:</strong><br />{selectedFile.name}</p>}
+        <button className="submit--button" onClick={handleSubmit}>Submit</button>
+      </div>
 
       <Information
         Data={Data} 
         total={total} 
         deposits={income}
       />
-      <button onClick={() => console.log(sortedExpenses)}>Console Log</button>
       <div className="category--cards--container">
         {categoryCards}
       </div>

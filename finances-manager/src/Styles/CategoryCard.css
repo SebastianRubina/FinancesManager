@@ -1,5 +1,51 @@
+:root {
+  --groceries-background-color: #c4faf8;
+  --rent-background-color: #aff8db;
+  --debt-background-color: #85e3ff;
+  --dining-background-color: #ace7ff;
+  --subscriptions-background-color: #6eb5ff;
+  --transportation-background-color: #afcbff;
+  --shopping-background-color: #97a2ff;
+  --phone-background-color: #bffcc6;
+  --savings-background-color: #e7ffac;
+  --others-background-color: #ffccf9;
+}
+
 .CategoryCard {
-  border: 1px solid black;
-  min-width: 200px;
+  color: #252525;
+  min-width: 150px;
   border-radius: 10px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.groceries--card {
+  background: var(--groceries-background-color);
+}
+.rent--card {
+  background: var(--rent-background-color);
+}
+.debt--card {
+  background: var(--debt-background-color);
+}
+.dining--card {
+  background: var(--dining-background-color);
+}
+.subscriptions--card {
+  background: var(--subscriptions-background-color);
+}
+.transportation--card {
+  background: var(--transportation-background-color);
+}
+.shopping--card {
+  background: var(--shopping-background-color);
+}
+.phone--card {
+  background: var(--phone-background-color);
+}
+.savings--card {
+  background: var(--savings-background-color);
+}
+.others--card {
+  background: var(--others-background-color);
 }
