@@ -1,0 +1,9 @@
+export const groceries = ["INSTA", "WALMART", "JIAN HING", "DOLLARAMA", "SHOPPERS", "WAL*MART"];
+export const groceriesRefunds = ["INST REV"];
+export const dining = ["DOMINO", "FANTUAN", "UBER", "DD", "DOORDASH", "SKIPTHEDISHES", "PORCHETTA", "WENDYS"]
+export const phone = ["FIDO"]
+export const etransfer = ["E-TFR"]
+export const shopping = ["AMAZON", "ETSY", "ALIEXPRESS", "AMZN", "IKEA", "G2A", "STEAM", "EPIC"]
+export const transportation = ["PRESTO"]
+export const subscriptions = ["SPOTIFY", "APPLE", "MICROSOFT", "SCRIMBA"]
+export const savings = ["SSV TO:  03296162066", "WS"]
