@@ -1,6 +1,6 @@
-export const groceries = ["INSTA", "WALMART", "JIAN HING", "DOLLARAMA", "SHOPPERS", "WAL*MART"];
+export const groceries = ["INSTA", "WALMART", "JIAN HING", "DOLLARAMA", "SHOPPERS", "WAL*MART", "DOLLAR TREE"];
 export const groceriesRefunds = ["INST REV"];
-export const dining = ["DOMINO", "FANTUAN", "UBER", "DD", "DOORDASH", "SKIPTHEDISHES", "PORCHETTA", "WENDYS"]
+export const dining = ["DOMINO", "FANTUAN", "UBER", "DD", "DOORDASH", "SKIPTHEDISHES", "PORCHETTA", "WENDYS", "CHATIME", "PHO", "EAST SIDE MARIO", "TIM HORTONS"]
 export const phone = ["FIDO"]
 export const etransfer = ["E-TFR"]
 export const shopping = ["AMAZON", "ETSY", "ALIEXPRESS", "AMZN", "IKEA", "G2A", "STEAM", "EPIC"]
