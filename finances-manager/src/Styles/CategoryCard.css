@@ -13,39 +13,47 @@
 
 .CategoryCard {
   color: #252525;
-  min-width: 150px;
+  flex: 1 0 150px;
   border-radius: 10px;
   padding: 5px 10px;
   text-align: center;
 }
 
-.groceries--card {
+.CategoryCard:hover {
+  cursor: pointer;
+}
+
+.selected {
+  border: 2px solid white;
+}
+
+.groceries-category {
   background: var(--groceries-background-color);
 }
-.rent--card {
+.rent-category {
   background: var(--rent-background-color);
 }
-.debt--card {
+.debt-category {
   background: var(--debt-background-color);
 }
-.dining--card {
+.dining-category {
   background: var(--dining-background-color);
 }
-.subscriptions--card {
+.subscriptions-category {
   background: var(--subscriptions-background-color);
 }
-.transportation--card {
+.transportation-category {
   background: var(--transportation-background-color);
 }
-.shopping--card {
+.shopping-category {
   background: var(--shopping-background-color);
 }
-.phone--card {
+.phone-category {
   background: var(--phone-background-color);
 }
-.savings--card {
+.savings-category {
   background: var(--savings-background-color);
 }
-.others--card {
+.others-category {
   background: var(--others-background-color);
 }

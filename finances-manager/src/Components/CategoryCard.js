@@ -3,15 +3,14 @@ import '../Styles/CategoryCard.css';
 
 export default function CategoryCard(props) {
 
-    const logTransactions = () => {
+    const setTransactions = (e) => {
         console.clear();
-        console.log("CLICKED");
-        let categorizedTransactionArray = props.Data.filter((transaction) => transaction.category === props.categoryName);
-        for (let transaction of categorizedTransactionArray) console.log(`${transaction.date} ${transaction.name} - ${transaction.charge}`);
+        props.setDisplayedTransactions(props.Data.filter((transaction) => transaction.category === props.categoryName && transaction.charge > 0));
+        console.log(props.Data.filter((transaction) => transaction.category === props.categoryName))
     }
 
     return (
-        ((props.Data.length > 0) && (props.categoryName !== "deposits")) && <div className={"CategoryCard " + props.categoryName + "--card"} onClick={logTransactions}>
+        ((props.Data.length > 0) && (props.categoryName !== "deposits")) && <div className={"CategoryCard " + props.categoryName + "-category"} onClick={setTransactions}>
             <h3>{props.categoryName[0].toUpperCase() + props.categoryName.slice(1).toLowerCase()}</h3>
             <p>${Math.round(props.expenseAmount * 100) / 100}</p>
         </div>

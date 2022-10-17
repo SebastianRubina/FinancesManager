@@ -5,7 +5,9 @@ import { groceries, groceriesRefunds, dining, phone, etransfer, shopping, transp
 import { sortExpenses, calculateTotals, createObject } from './Components/Functions';
 import Information from './Components/Information';
 import CategoryCard from './Components/CategoryCard';
+import Transaction from './Components/Transaction';
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
 
   const [total, setTotal] = useState(0);
   const [income, setIncome] = useState(0);
+
+  const [displayedTransactions, setDisplayedTransactions] = useState([]);
 
   const [sortedExpenses, setSortedExpenses] = useState({
     "groceries": 0,
@@ -61,40 +65,59 @@ function App() {
     })
     .then(() => {
       calculateTotals(Data, setTotal, setIncome)
+      setDisplayedTransactions(() => Data.filter((transaction) => transaction.charge > 0 && transaction.category));
     })
     .catch((err) => {
       console.log("ERROR: " + err);
     });
   }
 
+  useEffect(() => {
+    console.log("Changes");
+  }, [displayedTransactions])
+
   function changeHandler(event) {
     setSelectedFile(event.target.files[0]);
   }
 
   const categoryCards = Object.keys(sortedExpenses).map((item, i) => (
-    <CategoryCard key={item} categoryName={item} expenseAmount={sortedExpenses[item]} Data={Data}/>
+    <CategoryCard key={item} categoryName={item} expenseAmount={sortedExpenses[item]} Data={Data} setDisplayedTransactions={setDisplayedTransactions}/>
+  ))
+
+  const transactions = displayedTransactions.map(transaction => (
+    <Transaction key={Math.random()} Transaction={transaction} />
   ))
 
   return (
     <div className="App">
       <h1>Finance Manager</h1>
+      
+      <div className="main-content">
+        <div className="main-left">
+          <div className="upload--form">
+            <label className="input--text" htmlFor="file--input">Click Here to Upload a TD Statement (.csv)
+              <input type="file" accept=".csv" name="file--input" id="file--input" 
+                onChange={changeHandler}/>
+            </label>
+            {selectedFile && <p className='file--name'><strong>File Selected:</strong><br />{selectedFile.name}</p>}
+            <button className="submit--button" onClick={handleSubmit}>Submit</button>
+          </div>
 
-      <div className="upload--form">
-        <label className="input--text" htmlFor="file--input">Click Here to Upload a TD Statement (.csv)
-          <input type="file" accept=".csv" name="file--input" id="file--input" 
-            onChange={changeHandler}/>
-        </label>
-        {selectedFile && <p className='file--name'><strong>File Selected:</strong><br />{selectedFile.name}</p>}
-        <button className="submit--button" onClick={handleSubmit}>Submit</button>
-      </div>
-
-      <Information
-        Data={Data} 
-        total={total} 
-        deposits={income}
-      />
-      <div className="category--cards--container">
-        {categoryCards}
+          <Information
+            Data={Data} 
+            total={total} 
+            deposits={income}
+          />
+        </div>
+        <div className="main-divider"></div>
+        <div className="main-right">
+          <div className="category--cards--container">
+            {categoryCards}
+          </div>
+          <div className="transaction-container">
+            {transactions}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,16 @@
+.transaction {
+  color: #252525;
+  width: 98%;
+  border-radius: 10px;
+  display: flex;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.transaction .name {
+  margin-left: 25px;
+}
+
+.transaction .charge {
+  margin-left: auto;
+}
